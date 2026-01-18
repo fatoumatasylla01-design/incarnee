@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INCARNÉE — Programme de structure intérieure</title>
+  <meta name="description" content="INCARNÉE : 4 semaines pour stabiliser, reprogrammer, structurer. 10 places, 399€, paiement possible en 3 fois, accès sur sélection, distanciel." />
+
+  <style>
+    :root{
+      --bg0:#0f0a14;
+      --bg1:#160c22;
+      --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12);
+      --text:#f5f1ff;
+      --muted:rgba(245,241,255,.72);
+      --muted2:rgba(245,241,255,.55);
+
+      --violet:#7a4cff;
+      --rose:#ff6fae;
+
+      --green:#37d67a;
+      --red:#ff4d6d;
+      --purple:#a98bff;
+
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --r:18px;
+      --r2:26px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(122,76,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(255,111,174,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px;}
+
+    /* TOPBAR */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(15,10,20,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.3px}
+    .dot{
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(90deg, var(--violet), var(--rose));
+      box-shadow: 0 0 0 4px rgba(122,76,255,.12);
+    }
+    .nav{
+      display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+      color:var(--muted); font-size:14px;
+    }
+    .nav a{padding:8px 10px; border-radius:12px}
+    .nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius: 14px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      transition: transform .15s ease, background .15s ease, border .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.2)}
+    .btn-primary{
+      border:none;
+      background: linear-gradient(90deg, var(--violet), var(--rose));
+      box-shadow: 0 12px 28px rgba(122,76,255,.20);
+    }
+
+    /* HERO */
+    .hero{padding:64px 0 24px}
+    .grid-hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){ .grid-hero{grid-template-columns:1fr} }
+
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:13px;
+      width:fit-content;
+    }
+    .h1{
+      font-size:54px;
+      line-height:1.05;
+      margin:16px 0 14px;
+      letter-spacing:-.8px;
+    }
+    @media (max-width: 520px){ .h1{font-size:40px} }
+    .grad{
+      background: linear-gradient(90deg, var(--violet), var(--rose));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .lead{font-size:18px; color:var(--muted); margin:0 0 14px}
+    .lead strong{color:var(--text)}
+    .hero-cta{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:18px}
+    .meta{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:16px; color:var(--muted2); font-size:14px;
+    }
+    .meta span{
+      padding:8px 10px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+
+    /* Cards */
+    .card{
+      border:1px solid rgba(255,255,255,.14);
+      background: var(--card);
+      border-radius: var(--r2);
+      box-shadow: var(--shadow);
+    }
+    .card-inner{padding:22px}
+    .card-title{font-weight:900; letter-spacing:.2px; margin:0 0 6px; font-size:18px}
+    .card-text{margin:0; color:var(--muted); font-size:15px}
+    .hero-side{display:flex; flex-direction:column; gap:12px}
+
+    /* Sections */
+    section{padding:44px 0}
+    .section-title{font-size:28px; margin:0 0 10px; letter-spacing:-.3px}
+    .section-sub{margin:0 0 22px; color:var(--muted); max-width:75ch}
+
+    .two-col{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    @media (max-width: 900px){ .two-col{grid-template-columns:1fr} }
+
+    /* Icon list */
+    .list{
+      margin:0; padding:0; list-style:none;
+      display:grid; gap:10px;
+    }
+    .li{
+      padding:14px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color:var(--muted);
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .icon{
+      width:22px; height:22px; border-radius:8px;
+      flex:0 0 auto;
+      display:inline-flex; align-items:center; justify-content:center;
+      font-weight:1000;
+      margin-top:2px;
+      color:#0f0a14;
+    }
+    .icon.ok{background: rgba(55,214,122,.95)}
+    .icon.no{background: rgba(255,77,109,.95)}
+    .icon.neutral{background: rgba(169,139,255,.95)}
+    .icon span{transform: translateY(-.5px)}
+
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,111,174,.5), transparent);
+      margin:18px 0 0;
+    }
+
+    /* Three blocks */
+    .three{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    @media (max-width: 980px){ .three{grid-template-columns:1fr} }
+    .mini{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--r);
+      padding:18px;
+    }
+    .mini h3{margin:0 0 6px; font-size:16px}
+    .mini p{margin:0; color:var(--muted); font-size:14px}
+
+    /* Offer */
+    .offer{display:grid; grid-template-columns:1.1fr .9fr; gap:18px; align-items:stretch}
+    @media (max-width: 900px){ .offer{grid-template-columns:1fr} }
+    .price{font-size:44px; margin:0}
+    .badge{
+      display:inline-flex; padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:13px;
+      gap:8px; align-items:center; width:fit-content;
+    }
+
+    /* NEW: paiement 3x plus visible */
+    .paybox{
+      margin-top:12px;
+      padding:14px 14px;
+      border-radius: 18px;
+      border:1px solid rgba(55,214,122,.35);
+      background: linear-gradient(90deg, rgba(55,214,122,.14), rgba(169,139,255,.10));
+      box-shadow: 0 14px 32px rgba(0,0,0,.25);
+    }
+    .paybox strong{color:var(--text)}
+    .paybox .big{
+      font-size:18px;
+      font-weight:1000;
+      letter-spacing:.2px;
+      margin:0;
+    }
+    .paybox .small{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* FAQ */
+    .faq{display:grid; gap:12px}
+    details{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: 16px;
+      padding:14px 14px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color:var(--text);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .q{display:flex; gap:10px; align-items:flex-start}
+    .q .bubble{
+      width:26px; height:26px; border-radius:10px;
+      background: linear-gradient(90deg, rgba(122,76,255,.9), rgba(255,111,174,.9));
+      display:inline-flex; align-items:center; justify-content:center;
+      color:#120b1b; font-weight:1000;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+    details p{margin:10px 0 0; color:var(--muted); font-size:14px}
+
+    /* Sticky CTA */
+    .sticky{
+      position:fixed; left:0; right:0; bottom:0;
+      background: rgba(15,10,20,.78);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+      padding:10px 12px;
+      z-index:60;
+      display:none;
+    }
+    .sticky-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 10px;
+    }
+    .sticky .txt{color:var(--muted); font-size:13px}
+    @media (max-width: 720px){
+      .sticky{display:block}
+      body{padding-bottom:72px}
+      .nav{display:none}
+    }
+
+    /* NEW: Programme blocks */
+    .program-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    @media (max-width: 900px){ .program-grid{grid-template-columns:1fr} }
+    .week-title{margin:0 0 6px; font-size:18px; font-weight:1000; letter-spacing:.2px}
+    .week-quote{margin:0 0 12px; color:var(--muted2); font-style:italic}
+    .kpi{
+      margin:14px 0 0;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .kpi strong{color:var(--text)}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="brand"><span class="dot"></span><span>INCARNÉE</span></div>
+
+        <nav class="nav" aria-label="Navigation">
+          <a href="#pourqui">Pour qui</a>
+          <a href="#selection">Sélection</a>
+          <a href="#transformation">Transformation</a>
+          <a href="#methode">Méthode</a>
+          <a href="#programme">Programme</a>
+          <a href="#faq">FAQ</a>
+          <a href="#candidature">Candidature</a>
+        </nav>
+
+        <a class="btn btn-primary" href="https://forms.gle/cRQQY2eTBeR1PtuM8" target="_blank" rel="noopener">Candidater</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <div class="wrap hero" id="top">
+      <div class="grid-hero">
+        <div>
+          <div class="pill">Sur sélection • 10 places • 4 semaines • 399€ • Distanciel</div>
+
+          <h1 class="h1">
+            Tu n’es pas instable.<br/>
+            <span class="grad">Tu es non structurée intérieurement.</span>
+          </h1>
+
+          <p class="lead">
+            Tant que ton monde intérieur n’a pas de cadre, ta vie extérieure restera floue :
+            <strong>relations confuses</strong>, <strong>argent qui ne tient pas</strong>,
+            <strong>décisions reportées</strong>, <strong>fatigue émotionnelle</strong>.
+          </p>
+
+          <p class="lead">
+            <strong>INCARNÉE</strong> est un programme pour les femmes conscientes
+            qui ne veulent plus comprendre davantage, mais <strong>s’incarner enfin</strong>.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://forms.gle/cRQQY2eTBeR1PtuM8" target="_blank" rel="noopener">Je candidate</a>
+          </div>
+
+          <div class="meta" role="list">
+            <span role="listitem">3 axes : Stabiliser • Reprogrammer • Structurer</span>
+            <span role="listitem">10 places = accompagnement réel</span>
+            <span role="listitem">100% à distance</span>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Ici, on ne fuit pas.</p>
+              <p class="card-text"><span class="grad" style="-webkit-text-fill-color:transparent;">On s’incarne.</span></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Ce n’est pas une formation à consommer.</p>
+              <p class="card-text">C’est un cadre + des pratiques + de l’intégration, pour que ça tienne dans la vraie vie.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Résultat visé</p>
+              <p class="card-text">Devenir stable, cohérente, présente — sans te durcir ni te couper de toi.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="divider"></div>
+    </div>
+
+    <!-- POUR QUI -->
+    <section id="pourqui">
+      <div class="wrap">
+        <h2 class="section-title">À qui ce programme s’adresse</h2>
+        <p class="section-sub">
+          INCARNÉE est pour toi si tu veux un cadre intérieur solide, tout en restant sensible.
+        </p>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">INCARNÉE est pour toi si…</p>
+              <ul class="list">
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Tu ressens tout trop fort et tu veux te réguler</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Tu es spirituelle / intuitive / sensible</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Tu as déjà travaillé sur toi (mais ça ne “tient” pas encore)</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Tu sens ton potentiel, mais tu te perds dans le flou</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Tu veux arrêter l’instabilité émotionnelle ou énergétique</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Tu veux tenir dans le temps : décisions, constance, actions</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Ce programme n’est pas pour toi si…</p>
+              <ul class="list">
+                <li class="li"><span class="icon no"><span>✕</span></span><span>Tu cherches une solution magique, rapide, sans engagement</span></li>
+                <li class="li"><span class="icon no"><span>✕</span></span><span>Tu refuses de te regarder en face quand ça touche l’ego</span></li>
+                <li class="li"><span class="icon no"><span>✕</span></span><span>Tu consommes du contenu mais tu ne passes jamais à l’action</span></li>
+                <li class="li"><span class="icon no"><span>✕</span></span><span>Tu veux que quelqu’un fasse le travail intérieur à ta place</span></li>
+              </ul>
+
+              <div class="divider"></div>
+              <p class="card-text" style="margin-top:14px">
+                <strong style="color:var(--text)">Ici, on ne fuit pas.</strong><br/>
+                On s’incarne : dans le corps, dans les choix, dans la réalité.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTION -->
+    <section id="selection">
+      <div class="wrap">
+        <h2 class="section-title">Pourquoi c’est sur sélection (et pourquoi 10 places)</h2>
+        <p class="section-sub">
+          Le “petit groupe” n’est pas un argument marketing. C’est une condition de qualité.
+        </p>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Ce que la sélection garantit</p>
+              <ul class="list">
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Je peux être réellement proche des 10 : présence, suivi et retours</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Je peux accompagner “pour de vrai”, pas seulement déposer du contenu</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Le cadre reste stable : pas de dispersion, pas d’énergie qui fuit</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Le groupe est cohérent : même intention, même niveau d’engagement</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">La vérité</p>
+              <p class="card-text">
+                J’ai choisi <strong style="color:var(--text)">10 places maximum</strong> parce que je veux pouvoir te voir,
+                t’écouter, et t’aider à stabiliser ce qui se répète depuis des années — avec un accompagnement réel, proche, humain.
+              </p>
+              <p class="card-text" style="margin-top:10px">
+                Si je prends plus, je perds la proximité. Et toi, tu te retrouves à nouveau seule face à ton chaos.
+              </p>
+              <div class="divider"></div>
+              <p class="card-text" style="margin-top:14px">
+                <strong style="color:var(--text)">INCARNÉE = proximité + structure + transformation.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRANSFORMATION -->
+    <section id="transformation">
+      <div class="wrap">
+        <h2 class="section-title">Ce que ce programme transforme vraiment</h2>
+        <p class="section-sub">
+          Pas parce que ta vie devient parfaite. Mais parce que toi, tu deviens stable.
+        </p>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Avant</p>
+              <ul class="list">
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Trop d’émotions, trop de doutes</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Trop d’intuition sans direction</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Schémas qui se répètent (amour, argent, constance)</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Sensation de chaos intérieur</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Après</p>
+              <ul class="list">
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Stabilité émotionnelle</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Régulation du corps et du mental</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Clarté intérieure</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Décisions plus justes, moins de sabotage</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Ancrage, présence, cohérence</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODE -->
+    <section id="methode">
+      <div class="wrap">
+        <h2 class="section-title">Le cœur du travail</h2>
+        <p class="section-sub"><strong style="color:var(--text)">Tu ne manques pas de volonté. Tu manques de structure intérieure.</strong></p>
+
+        <div class="three">
+          <div class="mini">
+            <h3><span class="grad">1. STABILISER</span></h3>
+            <p>Réguler ton système nerveux, tes émotions, ton corps. Sortir du mode survie.</p>
+          </div>
+          <div class="mini">
+            <h3><span class="grad">2. REPROGRAMMER</span></h3>
+            <p>Transformer les schémas inconscients qui sabotent l’amour, l’argent, la confiance, la constance.</p>
+          </div>
+          <div class="mini">
+            <h3><span class="grad">3. STRUCTURER</span></h3>
+            <p>Poser un cadre. Décider. Tenir. Avancer. Incarner une identité claire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMME COMPLET -->
+    <section id="programme">
+      <div class="wrap">
+        <h2 class="section-title">Programme complet — réalignement intérieur (4 semaines)</h2>
+        <p class="section-sub">
+          Approche intégrative : neurosciences · psychologie · régulation du système nerveux · incarnation.<br/>
+          <strong style="color:var(--text)">Un changement durable ne passe pas par la compréhension cognitive seule, mais par la régulation, l’intégration corporelle et la répétition incarnée.</strong>
+        </p>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Structure scientifique</p>
+              <ul class="list">
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Le corps avant le mental</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>La sécurité avant la performance</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>La répétition avant “la motivation”</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Intégration : système nerveux + cognition + comportements</span></li>
+              </ul>
+
+              <div class="kpi">
+                <strong>+ Chaque semaine :</strong> un entretien individuel de <strong>1 heure</strong> avec moi (fin de semaine) pour intégrer,
+                ajuster, consolider et te rendre autonome dans le cadre.
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Pourquoi INCARNÉE fonctionne</p>
+              <ul class="list">
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Respecte l’ordre biologique du cerveau</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Ne force pas le changement : il le rend possible</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Travaille la sécurité avant l’action</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>S’appuie sur des modèles validés cliniquement</span></li>
+              </ul>
+
+              <div class="divider"></div>
+              <p class="card-text" style="margin-top:14px">
+                <strong style="color:var(--text)">INCARNÉE n’est pas un programme pour “aller mieux”.</strong><br/>
+                C’est un processus pour redevenir stable, habitée et cohérente — dans ton système nerveux, ton corps et tes décisions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-grid" style="margin-top:18px">
+          <!-- SEMAINE 1 -->
+          <div class="card">
+            <div class="card-inner">
+              <p class="week-title"><span class="grad">Semaine 1 — Sécurité & reconnexion corporelle</span></p>
+              <p class="week-quote">« Je redeviens habitable pour moi-même »</p>
+
+              <p class="card-text"><strong style="color:var(--text)">Objectif neuro-physiologique</strong><br/>
+                Réduire l’hyperactivation du système nerveux autonome (sortie du mode survie / alerte / dissociation).
+              </p>
+
+              <div class="divider"></div>
+
+              <p class="card-text" style="margin-top:14px"><strong style="color:var(--text)">Théories & sources</strong></p>
+              <ul class="list">
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Théorie polyvagale — Stephen Porges</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Neurobiologie du stress</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Somatic Experiencing — Peter Levine</span></li>
+              </ul>
+
+              <p class="card-text" style="margin-top:14px"><strong style="color:var(--text)">Outils</strong></p>
+              <ul class="list">
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Respiration vagale (activation du nerf vague)</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Ancrage sensoriel</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Reconnexion proprioceptive (corps ici & maintenant)</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Micro-rituels quotidiens de sécurité</span></li>
+              </ul>
+
+              <div class="kpi">
+                <strong>Résultat mesurable :</strong> baisse de l’agitation mentale, respiration plus ample, sentiment de présence.
+                <br/><strong>Fin de semaine :</strong> entretien individuel <strong>1h</strong>.
+              </div>
+            </div>
+          </div>
+
+          <!-- SEMAINE 2 -->
+          <div class="card">
+            <div class="card-inner">
+              <p class="week-title"><span class="grad">Semaine 2 — Désactivation des schémas émotionnels automatiques</span></p>
+              <p class="week-quote">« Je ressens sans me perdre »</p>
+
+              <p class="card-text"><strong style="color:var(--text)">Objectif psychologique</strong><br/>
+                Identifier et désactiver les réactions émotionnelles conditionnées.
+              </p>
+
+              <div class="divider"></div>
+
+              <p class="card-text" style="margin-top:14px"><strong style="color:var(--text)">Théories & sources</strong></p>
+              <ul class="list">
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Psychologie de l’attachement — Bowlby / Ainsworth</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Mémoire émotionnelle implicite</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Neurosciences des émotions — Joseph LeDoux</span></li>
+              </ul>
+
+              <p class="card-text" style="margin-top:14px"><strong style="color:var(--text)">Outils</strong></p>
+              <ul class="list">
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Cartographie des schémas d’attachement</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Observation émotionnelle sans fusion</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Techniques de décélération émotionnelle</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Réintégration consciente des sensations</span></li>
+              </ul>
+
+              <div class="kpi">
+                <strong>Résultat :</strong> l’émotion passe à travers toi — elle ne te gouverne plus.
+                <br/><strong>Fin de semaine :</strong> entretien individuel <strong>1h</strong>.
+              </div>
+            </div>
+          </div>
+
+          <!-- SEMAINE 3 -->
+          <div class="card">
+            <div class="card-inner">
+              <p class="week-title"><span class="grad">Semaine 3 — Réinstallation de l’autorité intérieure</span></p>
+              <p class="week-quote">« Je redeviens la référence »</p>
+
+              <p class="card-text"><strong style="color:var(--text)">Objectif neuro-psychologique</strong><br/>
+                Réactiver le cortex préfrontal (prise de décision, clarté, limites).
+              </p>
+
+              <div class="divider"></div>
+
+              <p class="card-text" style="margin-top:14px"><strong style="color:var(--text)">Théories & sources</strong></p>
+              <ul class="list">
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Fonctions exécutives — neurosciences cognitives</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Embodiment theory</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Psychologie des frontières</span></li>
+              </ul>
+
+              <p class="card-text" style="margin-top:14px"><strong style="color:var(--text)">Outils</strong></p>
+              <ul class="list">
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Travail posture / voix / ancrage</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Clarification des frontières internes</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Alignement sensation → décision</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Désactivation du besoin de justification</span></li>
+              </ul>
+
+              <div class="kpi">
+                <strong>Résultat :</strong> une autorité calme, non agressive, non défensive.
+                <br/><strong>Fin de semaine :</strong> entretien individuel <strong>1h</strong>.
+              </div>
+            </div>
+          </div>
+
+          <!-- SEMAINE 4 -->
+          <div class="card">
+            <div class="card-inner">
+              <p class="week-title"><span class="grad">Semaine 4 — Intégration & stabilisation</span></p>
+              <p class="week-quote">« Je deviens cohérente dans la durée »</p>
+
+              <p class="card-text"><strong style="color:var(--text)">Objectif neuroscientifique</strong><br/>
+                Ancrer les changements par répétition + cohérence.
+              </p>
+
+              <div class="divider"></div>
+
+              <p class="card-text" style="margin-top:14px"><strong style="color:var(--text)">Théories & sources</strong></p>
+              <ul class="list">
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Neuroplasticité — ce qui est répété s’inscrit</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Apprentissage expérientiel — le cerveau change par l’action</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Mémoire procédurale — nouveaux comportements automatiques</span></li>
+              </ul>
+
+              <p class="card-text" style="margin-top:14px"><strong style="color:var(--text)">Outils</strong></p>
+              <ul class="list">
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Rituels d’ancrage</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Consolidation comportementale</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Projection réaliste dans la vie quotidienne</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Stratégies anti-rechute (scientifiquement fondées)</span></li>
+              </ul>
+
+              <div class="kpi">
+                <strong>Résultat :</strong> la transformation tient sans effort conscient permanent.
+                <br/><strong>Fin de semaine :</strong> entretien individuel <strong>1h</strong> (clôture + plan d’intégration).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="card-text" style="margin-top:18px; color:var(--muted)">
+          <strong style="color:var(--text)">Important :</strong> le programme suit l’ordre biologique : sécurité → régulation → autorité intérieure → consolidation.
+          On ne “pousse” pas. On installe.
+        </p>
+      </div>
+    </section>
+
+    <!-- FORMAT + PRIX -->
+    <section id="format">
+      <div class="wrap">
+        <h2 class="section-title">Format & accès</h2>
+        <p class="section-sub">Clair, guidé, concret. Pour intégrer, pas pour accumuler.</p>
+
+        <div class="offer">
+          <div class="card">
+            <div class="card-inner">
+              <p class="badge">⏳ 4 semaines • 🟣 Distanciel • 🟣 Intégration corps / esprit • 🤝 Accompagnement réel</p>
+              <ul class="list" style="margin-top:14px">
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Contenus guidés clairs</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Pratiques concrètes</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Un cadre qui stabilise sans te durcir</span></li>
+                <li class="li"><span class="icon neutral"><span>●</span></span><span>Entretien individuel <strong style="color:var(--text)">1h</strong> chaque fin de semaine</span></li>
+              </ul>
+              <div class="divider"></div>
+              <p class="card-text" style="margin-top:14px">
+                <strong style="color:var(--text)">Ce n’est pas une formation à consommer.</strong><br/>
+                C’est un espace de transformation.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Accès & conditions</p>
+              <p class="price"><span class="grad">399 €</span></p>
+              <p class="card-text">10 places maximum • sur sélection</p>
+
+              <div class="paybox">
+                <p class="big">✅ Paiement en <strong>3 fois</strong> possible</p>
+                <p class="small">Proposé <strong>après validation</strong> de ta candidature (modalités envoyées par email).</p>
+              </div>
+
+              <div class="divider"></div>
+              <p class="card-text" style="margin-top:14px">
+                <strong style="color:var(--text)">Le paiement n’est proposé qu’après validation.</strong><br/>
+                Parce que je préfère un “oui” clair à une vente forcée.
+              </p>
+              <div style="margin-top:16px">
+                <a class="btn btn-primary" href="https://forms.gle/cRQQY2eTBeR1PtuM8" target="_blank" rel="noopener">Candidater</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- A PROPOS -->
+    <section id="apropos">
+      <div class="wrap">
+        <h2 class="section-title">À propos de moi</h2>
+        <p class="section-sub">
+          Je m’appelle <strong style="color:var(--text)">Fatoumata</strong>. Je travaille à la frontière entre le corps,
+          le subconscient, l’énergie et la matière.
+        </p>
+
+        <div class="two-col">
+          <!-- Bloc existant (REMPLI avec ton parcours : plus de vide) -->
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-text">
+                J’accompagne les femmes conscientes qui sentent qu’elles ont une chose précieuse à révéler en elle,
+                mais qui se sabotent encore intérieurement. Mon rôle : t’aider à installer la structure qui te permet
+                de tenir, décider et avancer — sans te trahir.
+              </p>
+
+              <div class="divider"></div>
+
+              <p class="card-text" style="margin-top:14px">
+                <strong style="color:var(--text)">Pourquoi tu peux me faire confiance :</strong><br/>
+                Dans ma vie pro, je <strong style="color:var(--text)">coordonne des accélérateurs d’entreprise</strong> :
+                j’accompagne des profils très différents à transformer une vision en plan d’action, à tenir un cadre,
+                à traverser les blocages, et à construire quelque chose qui fonctionne dans le réel.
+              </p>
+
+              <p class="card-text" style="margin-top:10px">
+                En parallèle, je suis <strong style="color:var(--text)">cheffe d’entreprise</strong> : je connais la pression,
+                les phases de doute, les montagnes russes internes, et le moment où tu comprends que le vrai levier
+                n’est pas “plus d’infos”… mais une <strong style="color:var(--text)">structure intérieure stable</strong>.
+              </p>
+
+              <p class="card-text" style="margin-top:10px">
+                Et surtout : je suis une femme qui a <strong style="color:var(--text)">analysé l’humain toute sa vie</strong>.
+                J’ai traversé et dépassé des traumas, des ruptures, des schémas répétitifs — et j’ai appris à transformer
+                la sensibilité en puissance : pas une puissance dure, mais une puissance <strong style="color:var(--text)">incarnée</strong>,
+                qui sait ressentir, décider, et tenir.
+              </p>
+
+              <div class="kpi" style="margin-top:14px">
+                <strong>Mon approche :</strong> je ne “motive” pas. Je structure. Je stabilise. Et je t’aide à devenir
+                ta propre référence — dans le corps, dans l’esprit, et dans tes choix.
+              </div>
+            </div>
+          </div>
+
+          <!-- NEW: Bloc autorité -->
+          <div class="card">
+            <div class="card-inner">
+              <p class="card-title">Mon positionnement (et mon cadre)</p>
+              <p class="card-text">
+                Je ne fais pas du “motivationnel”. Je travaille avec une approche <strong style="color:var(--text)">intégrative</strong> :
+                <strong style="color:var(--text)">régulation du système nerveux</strong>, compréhension des schémas, intégration corporelle,
+                et incarnation concrète dans la vie réelle.
+              </p>
+              <p class="card-text" style="margin-top:10px">
+                Ma spécialité, c’est d’aider une femme sensible à passer de <strong style="color:var(--text)">l’intuition sans cadre</strong>
+                à une <strong style="color:var(--text)">stabilité intérieure observable</strong> : décisions plus justes, constance,
+                limites claires, cohérence émotionnelle.
+              </p>
+
+              <div class="divider"></div>
+
+              <ul class="list" style="margin-top:14px">
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Je pose un cadre clair : pas de flou, pas de “on verra”.</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Je sélectionne pour préserver la qualité et l’intensité.</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Je t’accompagne réellement : <strong style="color:var(--text)">1h</strong> chaque semaine + intégration.</span></li>
+                <li class="li"><span class="icon ok"><span>✓</span></span><span>Je vise la stabilité durable, pas l’euphorie temporaire.</span></li>
+              </ul>
+
+              <p class="card-text" style="margin-top:14px">
+                Si tu entres dans INCARNÉE, tu entres dans un espace <strong style="color:var(--text)">exigeant mais sécurisant</strong> :
+                on ne tourne pas autour — on structure, on consolide, on incarne.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NB PROTECTION -->
+    <section id="nb">
+      <div class="wrap">
+        <div class="card">
+          <div class="card-inner">
+            <p class="card-title">NB (important)</p>
+            <p class="card-text">
+              INCARNÉE est un programme d’accompagnement et de transformation personnelle. Il ne remplace pas un suivi médical ou psychothérapeutique.
+              <strong style="color:var(--text)">En cas de souffrance émotionnelle intense, de symptômes sévères, de crise, ou de situation qui te met en danger, consulte un médecin</strong>
+              (ou un professionnel de santé mentale) afin d’être prise en charge de manière adaptée.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ PRECISE -->
+    <section id="faq">
+      <div class="wrap">
+        <h2 class="section-title">FAQ (précise, sans flou)</h2>
+        <p class="section-sub">
+          Je préfère répondre maintenant aux vraies questions, pour que tu candidates en conscience.
+        </p>
+
+        <div class="faq">
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Qu’est-ce qui rend INCARNÉE différent d’une “formation mindset” ?</span></span></summary>
+            <p>
+              Une formation mindset te donne des idées. INCARNÉE te donne un <strong>cadre</strong> et une <strong>structure intérieure</strong> :
+              régulation du système nerveux, transformation des schémas inconscients, et incarnation dans tes décisions.
+              Le but : que ça tienne dans ta vraie vie (amour, argent, constance), pas seulement dans ta tête.
+            </p>
+          </details>
+
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Pourquoi sur sélection ?</span></span></summary>
+            <p>
+              Parce que je veux être <strong>réellement proche</strong> des 10 participantes.
+              Je ne veux pas “déposer du contenu” et disparaître.
+              Je veux pouvoir <strong>t’accompagner pour de vrai</strong> : présence, retours, suivi, et cadre stable.
+              La sélection protège aussi le groupe : même intention, même engagement.
+            </p>
+          </details>
+
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Est-ce que je suis “trop émotive” pour ce programme ?</span></span></summary>
+            <p>
+              Non. C’est même souvent le point de départ.
+              Le but n’est pas de “te calmer” ou de t’éteindre, mais de <strong>te réguler</strong> : ressentir sans être emportée.
+              Tu gardes ton intuition, mais tu récupères la direction.
+            </p>
+          </details>
+
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Concrètement, qu’est-ce que je vais changer dans ma vie ?</span></span></summary>
+            <p>
+              Tu vas arrêter de vivre “au feeling du chaos”.
+              Concrètement : plus de clarté sur tes décisions, moins de sabotage, plus de constance,
+              une sensation de stabilité dans le corps, et une capacité à tenir tes engagements.
+            </p>
+          </details>
+
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Et si je manque de temps ?</span></span></summary>
+            <p>
+              Ce programme n’est pas fait pour remplir ton agenda.
+              Il est fait pour t’apprendre à <strong>tenir un cadre</strong>.
+              Même avec peu de temps, une pratique courte mais régulière vaut mieux qu’un “grand élan” une fois par mois.
+              Si tu es dans une période où tu refuses toute régularité : ce n’est pas le bon moment.
+            </p>
+          </details>
+
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Pourquoi 399€ ?</span></span></summary>
+            <p>
+              Parce que le programme inclut un cadre et un accompagnement réel, avec un petit groupe.
+              Je préfère un prix juste, et 10 femmes qui s’engagent, plutôt qu’un prix bas et un groupe énorme où personne n’est suivi.
+            </p>
+          </details>
+
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Paiement en plusieurs fois : comment ça marche ?</span></span></summary>
+            <p>
+              Après validation de ta candidature, je peux te proposer un paiement en <strong>3 fois</strong>.
+              L’objectif : te permettre de t’engager sans te mettre en difficulté, tout en respectant le cadre.
+            </p>
+          </details>
+
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Est-ce que je peux payer si je ne suis pas sélectionnée ?</span></span></summary>
+            <p>
+              Non. Le paiement est proposé uniquement après validation.
+              La sélection existe précisément pour éviter les “oui impulsifs” et respecter le cadre.
+            </p>
+          </details>
+
+          <details>
+            <summary><span class="q"><span class="bubble">?</span><span>Comment se passe la sélection ?</span></span></summary>
+            <p>
+              Tu candidates via le formulaire.
+              Je lis les réponses. Si ton profil correspond (engagement, intention, besoin réel),
+              tu reçois un message avec la suite (validation + modalités).
+              Si ce n’est pas aligné, je préfère te le dire plutôt que de te faire entrer “pour remplir”.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CANDIDATURE (Google Form) -->
+    <section id="candidature">
+      <div class="wrap">
+        <h2 class="section-title">Candidature</h2>
+        <p class="section-sub">
+          5 réponses. Simple. Précis. Je lis vraiment.
+        </p>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="card-text">
+              La candidature se fait via un formulaire Google.
+            </p>
+
+            <div style="margin-top:16px">
+              <a class="btn btn-primary" href="https://forms.gle/cRQQY2eTBeR1PtuM8" target="_blank" rel="noopener">
+                Ouvrir le formulaire de candidature
+              </a>
+            </div>
+
+            <p class="hint" style="margin-top:10px; color:var(--muted2); font-size:13px">
+              Les candidatures sont lues manuellement. Si ton profil correspond, tu recevras la suite par email.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:22px 0 60px">
+      <div class="wrap" style="color:var(--muted2); font-size:13px">
+        © <span id="year"></span> INCARNÉE — Tous droits réservés.
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky CTA mobile -->
+  <div class="sticky">
+    <div class="sticky-inner">
+      <div class="txt">INCARNÉE • 10 places • 399€ (3x possible) • sur sélection • distanciel</div>
+      <a class="btn btn-primary" href="https://forms.gle/cRQQY2eTBeR1PtuM8" target="_blank" rel="noopener">Candidater</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+```
